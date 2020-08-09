@@ -1,0 +1,45 @@
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .message {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    width: fit-content;
+    max-width: 60%;
+    margin: 5px 1px;
+    align-items: center;
+    p {
+      padding: 5px 10px;
+      margin: 0 2px;
+      border-radius: 8px;
+    }
+  }
+
+  .sent {
+    p {
+      background-color: lightgreen;
+    }
+    .MuiAvatar-circle {
+      background-color: #212121;
+    }
+  }
+
+  .received {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    p {
+      background-color: orange;
+    }
+    .MuiAvatar-circle {
+      background-color: #212121;
+    }
+  }
+}
+
+.no-avatar-p  {
+  p {
+    font-size: 16px;
+  }
+}
