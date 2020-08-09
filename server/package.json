@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon ./src/server.ts",
-    "start" : "node ./dist/index.js",
-    "build" : "tsc"
+    "start" : "node ./dist/server.js",
+    "build" : "npx tsc"
   },
   "keywords": [],
   "author": "",
