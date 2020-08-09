@@ -7,7 +7,6 @@ import {
   Avatar,
 } from "@material-ui/core";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
-import CopyIcon from "@material-ui/icons/FileCopy";
 
 const color = ["orange","indigo"];
 
@@ -30,10 +29,6 @@ const SideBar = ({ users,logout }) => {
         </List>
       </span>
       <div className="action">
-        <span>
-          <CopyIcon fontSize="small" />
-          <p>Link</p>
-        </span>
         <span onClick={() => logout()} >
           <LogoutIcon fontSize="small" />
           <p>Logout</p>

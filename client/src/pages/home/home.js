@@ -142,10 +142,10 @@ const Login = ({ history, setSharedKey, setNameAndKey }) => {
         <p>Connect with me</p>
         <span>
           <p>
-            <LinkedIn />
+            <a href="https://www.linkedin.com/in/hpk06/" target='blank'><LinkedIn /></a>
           </p>
           <p>
-            <Github />
+            <a href="https://github.com/harik-6/" target='blank' ><Github /></a>
           </p>
         </span>
       </div>
