@@ -1,11 +1,11 @@
-import express, { Router, Request, Response } from 'express';
+import * as express from 'express';
 import IUser from './user.interface';
-import rsa from 'node-rsa';
+import * as rsa from 'node-rsa';
 import { addUserToRoom } from '../../services/room.service';
 
-const userRouter: Router = express.Router();
+const userRouter: express.Router = express.Router();
 
-userRouter.post("/create", async (req: Request, res: Response) => {
+userRouter.post("/create", async (req: express.Request, res: express.Response) => {
   const { name, roomId } = req.body;
   const keypairs = new rsa().generateKeyPair();
   const private_key: string = keypairs.exportKey('private');

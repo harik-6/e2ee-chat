@@ -1,7 +1,7 @@
-import express from 'express';
+import * as  express from 'express';
 import { v4 as uuid } from 'uuid';
 import IRoom from './room.interface';
-import { addRoom, removeRoom, getRoom } from '../../services/room.service'
+import { addRoom, removeRoom } from '../../services/room.service'
 
 const roomRouter = express.Router();
 
