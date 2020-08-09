@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import socket from 'socket.io';
 import http from 'http';
 import cors from 'cors';
-// import mongoose from 'mongoose';
 
 
 //apis
@@ -11,22 +10,14 @@ import userapi from './handlers/user/user.route';
 import roomapi from './handlers/room/room.route';
 const { chat } = require('./handlers/chatserver/chatserver');
 
-// const mongo_url: string =
-//   "mongodb+srv://hari_k6:DjkstgVkfUHafqXC@cluster0.mdlse.mongodb.net/e2ee?retryWrites=true&w=majority";
-
-
 const app: express.Application = express();
 
 app.use(bodyParser.json({}));
 app.use(cors());
+app.use(express.static('public'));
 
 const startServer = async () => {
   try {
-    // await mongoose.connect(mongo_url, {
-    //   useUnifiedTopology: true,
-    //   useNewUrlParser: true
-    // });
-    // console.log("Mongodb connected");
     app.use('/user', userapi);
     app.use('/room', roomapi);
     const port = 9000;

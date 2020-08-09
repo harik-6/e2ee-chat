@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c40e7d1.chunk.css",
+    "main.js": "/static/js/main.d9b7267c.chunk.js",
+    "main.js.map": "/static/js/main.d9b7267c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.49925162.js",
+    "runtime-main.js.map": "/static/js/runtime-main.49925162.js.map",
+    "static/js/2.59478e8f.chunk.js": "/static/js/2.59478e8f.chunk.js",
+    "static/js/2.59478e8f.chunk.js.map": "/static/js/2.59478e8f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.45262fa7da5758012f96210a9a34b035.js": "/precache-manifest.45262fa7da5758012f96210a9a34b035.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5c40e7d1.chunk.css.map": "/static/css/main.5c40e7d1.chunk.css.map",
+    "static/js/2.59478e8f.chunk.js.LICENSE.txt": "/static/js/2.59478e8f.chunk.js.LICENSE.txt",
+    "static/media/home.styles.scss": "/static/media/friends-icon.ca3eeb4d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.49925162.js",
+    "static/js/2.59478e8f.chunk.js",
+    "static/css/main.5c40e7d1.chunk.css",
+    "static/js/main.d9b7267c.chunk.js"
+  ]
+}

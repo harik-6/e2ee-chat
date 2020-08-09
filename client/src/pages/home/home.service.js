@@ -2,8 +2,8 @@ import axios from "axios";
 
 class HomeService {
   constructor() {
-    this.roomUrl = "http://localhost:9000/room";
-    this.userUrl = "http://localhost:9000/user";
+    this.roomUrl = "/room";
+    this.userUrl = "/user";
   }
   
 
