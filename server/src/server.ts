@@ -1,4 +1,4 @@
-import express from 'express';
+import  express from 'express';
 import bodyParser from 'body-parser';
 import socket from 'socket.io';
 import http from 'http';
@@ -6,7 +6,7 @@ import cors from 'cors';
 import userapi from './handlers/user/user.route';
 import roomapi from './handlers/room/room.route';
 const { chat } = require('./handlers/chatserver/chatserver');
-const port = 8080;
+const port = 9000;
 const app: express.Application = express();
 const server = http.createServer(app);
 const io = socket.listen(server)

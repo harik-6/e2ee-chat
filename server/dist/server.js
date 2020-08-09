@@ -17,7 +17,7 @@ var server = http_1.default.createServer(app);
 var io = socket_io_1.default.listen(server);
 app.use(body_parser_1.default.json({}));
 app.use(cors_1.default());
-app.use(express_1.default.static('public'));
+app.use("/", express_1.default.static('public'));
 app.use('/user', user_route_1.default);
 app.use('/room', room_route_1.default);
 chat(io);
