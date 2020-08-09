@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "local": "nodemon server.ts",
-    "statr" : "node server.ts"
+    "dev": "nodemon ./src/server.ts",
+    "start" : "node ./dist/index.js",
+    "build" : "tsc"
   },
   "keywords": [],
   "author": "",
