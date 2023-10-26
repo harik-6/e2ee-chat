@@ -6,14 +6,42 @@ import "./demo.styles.scss";
 const xdist = "50%";
 const radius = "7";
 let origin = "0%";
+let interval = undefined;
+const animationFlow = [
+  {
+    cy: "5%",
+    cindex: 1
+  },
+  {
+    cy: "22%",
+    cindex: 2
+  },
+  {
+    cy: "41%",
+    cindex: 3
+  },
+  {
+    cy: "59%",
+    cindex: 4
+  },
+  {
+    cy: "78%",
+    cindex: 5
+  },
+  {
+    cy: "95%",
+    cindex: 6
+  }
+]
 
 const TimeLine = ({ setActiveIndex, msg }) => {
   useEffect(() => {
+    if (interval !== undefined) clearInterval(interval);
     for (let i = 1; i <= 6; i++) {
       setTimeout(() => {
         const classes = document.getElementsByClassName(`c${i}`);
         classes[0].setAttribute("class", `com-circle c${i}`);
-      }, 1000);
+      }, 500);
     }
     anime({
       targets: ".com-line-anim",
@@ -22,7 +50,24 @@ const TimeLine = ({ setActiveIndex, msg }) => {
       duration: 1000,
     });
     origin = "0%";
+    startAnimation();
+    // eslint-disable-next-line
   }, [msg]);
+
+  const startAnimation = () => {
+    let animationIndex = 0;
+    interval = setInterval(() => {
+      let index = animationIndex;
+      let flowAttributes = animationFlow[index];
+      animationIndex += 1;
+      animateTo({ target: { getAttribute: () => flowAttributes.cy } }, flowAttributes.cindex);
+      if (animationIndex >= animationFlow.length) {
+        clearInterval(interval);
+        interval = undefined;
+      }
+    }, 1000)
+  }
+
 
   const animateTo = (e, cirindex) => {
     if (cirindex !== 0) {
@@ -46,6 +91,7 @@ const TimeLine = ({ setActiveIndex, msg }) => {
       origin = dest;
     }
   };
+
   return (
     <React.Fragment>
       <svg height="100%" width="100%" className="time-line">
@@ -59,7 +105,7 @@ const TimeLine = ({ setActiveIndex, msg }) => {
         <line x1={xdist} y1="0%" x2={xdist} className="com-line-anim"></line>
 
         <circle
-          onClick={(e) => animateTo(e, 1)}
+          // onClick={(e) => animateTo(e, 1)}
           cx={xdist}
           cy="5%"
           r={radius}
@@ -67,7 +113,7 @@ const TimeLine = ({ setActiveIndex, msg }) => {
         ></circle>
 
         <circle
-          onClick={(e) => animateTo(e, 2)}
+          // onClick={(e) => animateTo(e, 2)}
           cx={xdist}
           cy="22%"
           r={radius}
@@ -75,28 +121,28 @@ const TimeLine = ({ setActiveIndex, msg }) => {
         ></circle>
 
         <circle
-          onClick={(e) => animateTo(e, 3)}
+          // onClick={(e) => animateTo(e, 3)}
           cx={xdist}
           cy="41%"
           r={radius}
           className="com-circle c3"
         ></circle>
         <circle
-          onClick={(e) => animateTo(e, 4)}
+          // onClick={(e) => animateTo(e, 4)}
           cx={xdist}
           cy="59%"
           r={radius}
           className="com-circle c4"
         ></circle>
         <circle
-          onClick={(e) => animateTo(e, 5)}
+          // onClick={(e) => animateTo(e, 5)}
           cx={xdist}
           cy="78%"
           r={radius}
           className="com-circle c5"
         ></circle>
         <circle
-          onClick={(e) => animateTo(e, 6)}
+          // onClick={(e) => animateTo(e, 6)}
           cx={xdist}
           cy="95%"
           r={radius}

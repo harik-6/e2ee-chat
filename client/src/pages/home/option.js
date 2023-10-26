@@ -6,11 +6,11 @@ import ArrowIcon from "@material-ui/icons/ArrowForward";
 
 import "./home.styles.scss";
 
-const Options = ({ onInvite,onDemo }) => {
+const Options = ({ onInvite, onDemo }) => {
   return (
     <React.Fragment>
       <Card className="material-card">
-        <CardContent style={cardContentStyle}>
+        <CardContent style={{ ...cardContentStyle, opacity: 0.3 }}>
           <div className="material-card-icon one"></div>
           <p>
             Invite your friend and have some fun!!!.Don't worry the conversation
@@ -18,6 +18,7 @@ const Options = ({ onInvite,onDemo }) => {
           </p>
           <div className="btn-grp btn-invite">
             <Button
+              disabled
               onClick={() => onInvite()}
               style={{ ...btnStyle, backgroundColor: "#FF8C00" }}
             >
@@ -35,7 +36,7 @@ const Options = ({ onInvite,onDemo }) => {
             conversation
           </p>
           <div className="btn-grp btn-demo">
-            <Button  onClick={() => onDemo()} style={btnStyle}>Explore</Button>
+            <Button onClick={() => onDemo()} style={btnStyle}>Explore</Button>
             <ArrowIcon style={iconStyle} />
           </div>
         </CardContent>

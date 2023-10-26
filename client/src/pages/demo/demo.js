@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import anime from "animejs";
-import {
-  Button,
-  Modal,
-  List,
-  ListItem,
-  ListItemIcon,
-} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { ChatComponent } from "../../components/chat";
 
 import Next from "@material-ui/icons/SkipNext";
 import Previous from "@material-ui/icons/SkipPrevious";
 import Key from "@material-ui/icons/VpnKey";
-import Circle from "@material-ui/icons/RadioButtonUncheckedOutlined";
 import TimeLine from "./timeline";
 
 import mockChat from "./messages";
@@ -34,7 +27,7 @@ const btnStyles = {
 const Demo = () => {
   const [messages, setMessage] = useState([mockChat[0]]);
   const [activeMsg, setActiveMessage] = useState(mockChat[0]);
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [encodedMsg, setEncodedMessage] = useState(btoa(activeMsg.sender + activeMsg.receiver + activeMsg.message + activeMsg.type))
 
   const showPs = (index) => {
     let show = [];
@@ -73,11 +66,17 @@ const Demo = () => {
     hidePs(index);
   };
 
+  const setActiveAndEncodedMessage = (messageObj) => {
+    setActiveMessage(messageObj);
+    const { sender, receiver, message, type } = messageObj;
+    setEncodedMessage(btoa(sender + receiver + message + type));
+  }
+
   const addMessage = () => {
     if (messages.length < mockChat.length) {
       const newmessage = [...messages, mockChat[messages.length]];
       setMessage(newmessage);
-      setActiveMessage(mockChat[messages.length]);
+      setActiveAndEncodedMessage(mockChat[messages.length]);
       hidePs("-1");
     }
   };
@@ -86,7 +85,7 @@ const Demo = () => {
     if (messages.length > 1) {
       const newmessage = messages.filter((m, i) => i !== messages.length - 1);
       setMessage(newmessage);
-      setActiveMessage(newmessage[newmessage.length - 1]);
+      setActiveAndEncodedMessage(mockChat[messages.length]);
       hidePs("-1");
     }
   };
@@ -126,14 +125,14 @@ const Demo = () => {
                   <span>{`Encrypted using ${receiver}'s public key `}</span>
                   <Key style={{ color: "green" }} />
                 </p>
-                <p className="pp p4">{`Encrypted message sent to ${receiver}`}</p>
+                <p className="pp p4">{`Encrypted message '${encodedMsg}' sent to ${receiver}`}</p>
               </div>
               <div className="tmline">
                 <TimeLine msg={message} setActiveIndex={setActiveIndex} />
               </div>
               <div className="bob-side">
                 <div className="sixedbox"> </div>
-                <p className="pp p5">{`Encrypted message received by ${receiver}`}</p>
+                <p className="pp p5">{`Encrypted message '${encodedMsg}' received by ${receiver}`}</p>
                 <p className="pp p6">
                   <span>{`Decrypted using ${receiver}'s private key `}</span>
                   <Key style={{ color: "green" }} />
@@ -147,7 +146,7 @@ const Demo = () => {
             </div>
           </div>
         </div>
-        <Modal
+        {/* <Modal
           className="info-modal"
           open={isModalOpen}
           disableBackdropClick={false}
@@ -168,18 +167,18 @@ const Demo = () => {
               </ListItem>
               <ListItem >
                 <ListItemIcon>
-                <Circle style={{ ...iconStyles, color: "#d3d3d3" }} /> 
+                  <Circle style={{ ...iconStyles, color: "#d3d3d3" }} />
                 </ListItemIcon>
                 To navigate to the various steps in encryption/decryption timeline
               </ListItem>
-              <ListItem style={{display:"flex",flexDirection:"row-reverse"}} >
-                <Button onClick={() => setModalOpen(false)} style={{backgroundColor:"#d3d3d3"}} >
+              <ListItem style={{ display: "flex", flexDirection: "row-reverse" }} >
+                <Button onClick={() => setModalOpen(false)} style={{ backgroundColor: "#d3d3d3" }} >
                   Close
                 </Button>
               </ListItem>
             </List>
           </div>
-        </Modal>
+        </Modal> */}
       </div>
     </React.Fragment>
   );

@@ -13,9 +13,6 @@ import { connect } from "react-redux";
 import CreateRoom from "./createroom";
 import homeService from "./home.service";
 
-// social icons
-import LinkedIn from "@material-ui/icons/LinkedIn";
-import Github from "@material-ui/icons/GitHub";
 
 import "./home.styles.scss";
 import Options from "./option";
@@ -100,7 +97,7 @@ const Login = ({ history, setSharedKey, setNameAndKey }) => {
 
   return (
     <div className="login">
-      <h4 className="app-header">E2EE chat application</h4>
+      <h4 className="app-header">Chat encryption simulator</h4>
       <div className="container">
         <div className="option-container">
           <Options onInvite={onInvite} onDemo={onDemo} />
@@ -138,14 +135,14 @@ const Login = ({ history, setSharedKey, setNameAndKey }) => {
           </Card>
         </div>
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <p>Connect with me</p>
         <span>
           <p>
             <a href="https://www.linkedin.com/in/hpk06/" target='blank'><LinkedIn /></a>
           </p>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };
