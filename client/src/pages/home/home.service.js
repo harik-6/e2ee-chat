@@ -2,10 +2,10 @@ import axios from "axios";
 
 class HomeService {
   constructor() {
-    this.roomUrl = "/room";
-    this.userUrl = "/user";
+    this.roomUrl = "http://localhost:8080/room";
+    this.userUrl = "http://localhost:8080/user";
   }
-  
+
 
   getRoomId = async () => {
     const response = await axios.post(`${this.roomUrl}/create`);
@@ -20,10 +20,10 @@ class HomeService {
     return true;
   };
 
-  createUser = async (name,id) => {
+  createUser = async (name, id) => {
     const response = await axios.post(`${this.userUrl}/create`, {
       name,
-      roomId : id
+      roomId: id
     });
     const data = response.data;
     return data;
